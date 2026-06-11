@@ -134,12 +134,12 @@ services:
     ports:
       - "${CHECKOUT_PORT}"
     environment:
-      - FLAGD_HOST
-      - FLAGD_PORT
       - CHECKOUT_PORT
       - CART_ADDR
       - CURRENCY_ADDR
       - EMAIL_ADDR
+      - FLAGD_HOST
+      - FLAGD_PORT
       - PAYMENT_ADDR
       - PRODUCT_CATALOG_ADDR
       - SHIPPING_ADDR
@@ -463,9 +463,9 @@ services:
       - "${PAYMENT_PORT}"
     environment:
       - IPV6_ENABLED
-      - PAYMENT_PORT
       - FLAGD_HOST
       - FLAGD_PORT
+      - PAYMENT_PORT
       - OTEL_EXPORTER_OTLP_ENDPOINT
       - OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE
       - OTEL_RESOURCE_ATTRIBUTES
@@ -494,9 +494,9 @@ services:
     ports:
       - "${PRODUCT_CATALOG_PORT}"
     environment:
-      - PRODUCT_CATALOG_PORT
       - FLAGD_HOST
       - FLAGD_PORT
+      - PRODUCT_CATALOG_PORT
       - GOMEMLIMIT=16MiB
       - OTEL_EXPORTER_OTLP_ENDPOINT
       - OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE
@@ -605,10 +605,10 @@ services:
     ports:
       - "${RECOMMENDATION_PORT}"
     environment:
-      - RECOMMENDATION_PORT
-      - PRODUCT_CATALOG_ADDR
       - FLAGD_HOST
       - FLAGD_PORT
+      - RECOMMENDATION_PORT
+      - PRODUCT_CATALOG_ADDR
       - OTEL_PYTHON_LOG_CORRELATION=true
       - OTEL_EXPORTER_OTLP_ENDPOINT
       - OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE

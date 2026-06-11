@@ -152,8 +152,8 @@ services:
     ports:
       - "${CURRENCY_PORT}"
     environment:
-      - IPV6_ENABLED
       - CURRENCY_PORT
+      - IPV6_ENABLED
       - VERSION=${IMAGE_VERSION}
       - OTEL_EXPORTER_OTLP_ENDPOINT
       - OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE
@@ -284,8 +284,8 @@ services:
       - OTEL_RESOURCE_ATTRIBUTES
       - OTEL_SERVICE_NAME=frontend-proxy
       - ENVOY_PORT
-      - ENVOY_ADMIN_PORT
       - ENVOY_ADDR
+      - ENVOY_ADMIN_PORT
       - FLAGD_HOST
       - FLAGD_PORT
       - FLAGD_UI_HOST
@@ -442,7 +442,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 500M
+          memory: 100M
     restart: unless-stopped
     ports:
       - "${PRODUCT_REVIEWS_PORT}"
@@ -559,12 +559,12 @@ services:
       - OTEL_RESOURCE_ATTRIBUTES
       - OTEL_SERVICE_NAME=shipping
       - OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE
-    healthcheck:
-      test: ["CMD-SHELL", "timeout 1 bash -c '>/dev/tcp/localhost/${SHIPPING_PORT}'"]
-      start_period: 10s
-      interval: 5s
-      timeout: 10s
-      retries: 10
+#    healthcheck:
+#      test: ["CMD-SHELL", "timeout 1 bash -c '>/dev/tcp/localhost/${SHIPPING_PORT}'"]
+#      start_period: 10s
+#      interval: 5s
+#      timeout: 10s
+#      retries: 10
     depends_on:
       otel-collector:
         condition: service_started
